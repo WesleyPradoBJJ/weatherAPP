@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isNight: $isNight)
+            BackgroundView(isNight: isNight)
             
             VStack{
                 CityTextView(cityName: "Abu Dhabi, UAE.")
@@ -49,7 +49,7 @@ struct ContentView: View {
                 } label: {
                     WeatherButton(title: "Change Day Time",
                                   textColor: .blue,
-                                  backgroundColor: .white)
+                                  backgroundColor: .yellow)
                 }
                 
                 Spacer()
@@ -89,7 +89,7 @@ struct WeatherDayView: View {
 
 struct BackgroundView: View {
     
-    @Binding var isNight: Bool
+    var isNight: Bool
     
     var body: some View {
         
@@ -97,7 +97,7 @@ struct BackgroundView: View {
                                                   isNight ? .black : .white,
                                                   isNight ? .gray : .blue]),
                        startPoint: .topLeading, endPoint: .bottomTrailing)
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
     }
 }
 
